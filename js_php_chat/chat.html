@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		font{vertical-align:text-top;}
+	</style>
+</head>
+
+<body>
+<div style="width:500px;height:350px;border:1px solid #000;margin:0 auto">
+	<div style="height:80%;border:1px solid #000;margin:2px;overflow:auto" id="msBox" >
+		
+	</div>
+	<div style="height:15%;border:1px solid #000;margin:5px 2px">
+			<input id="ms" style="width:100%;height:100%;padding:0px;margin:0px;display:inline">
+		
+	</div>
+</div>
+
+<script type="text/javascript">
+	window.onload=function(){
+		var i=0;
+		var input=document.getElementById("ms");
+		var mb=document.getElementById("msBox");
+		var name=prompt("Enter your name");
+		input.style.verticalAlign="top";
+		input.focus();
+		function sendMessage(){
+		if(!window.XMLHttpRequest)
+		{
+			window.XMLHttpRequest=function(){
+				try{
+					return new ActiveXObject("Msxml2.XMLHTTP.6.0");
+				}catch(e){
+					try{
+						return new ActiveXObject("Msxml2.XMLHTTP.3.0");
+					}catch(e1)
+					{
+						throw new Error("not supported xml");
+					}
+				}
+			}
+		}
+		var value=input.value;
+		var url="chat.php";
+		url+="?name="+name+"&value="+value;
+		var xml=new XMLHttpRequest();
+		xml.open("GET",url,false);
+		xml.send(null);
+	
+		if(xml.status==200&&xml.readyState==4)console.log(xml.responseText);
+		input.value="";
+
+	}
+	function responseMessage(){
+		if(!window.XMLHttpRequest)
+		{
+			try{
+				return new ActiveXObject("Msxml2.XMLHTTP.6.0");
+			}catch(e)
+			{
+				try{
+					return new ActiveXObject("Msxml2.XMLHTTP.3.0");
+				}catch(e1)
+				{
+					throw new Error("not supported xml");
+				}
+			}
+		}
+
+		var xhr=new XMLHttpRequest();
+						
+
+		xhr.open("GET","chat_rep.php",true);
+		xhr.onreadystatechange=function(){
+			if(xhr.readyState==4&&xhr.status==200)
+			{	
+				
+				var div=document.createElement("div");
+				var text=document.createTextNode(xhr.responseText);
+				
+				div.appendChild(text);
+				mb.appendChild(div);
+
+				mb.lastChild.scrollIntoView();
+
+			}
+		}
+		xhr.send(null);
+
+	}
+	
+	/*function showAlldata(){
+		if(!window.XMLHttpRequest)
+		{
+			try{
+				return new ActiveXObject("Msxml2.XMLHTTP.6.0");
+			}catch(e)
+			{
+				try{
+					return new ActiveXObject("Msxml2.XMLHTTP.3.0");
+				}catch(e1)
+				{
+					throw new Error("not supported xml");
+				}
+			}
+		}
+
+		var xhr=new XMLHttpRequest();
+						
+
+		xhr.open("GET","show_amout.php",true);
+		xhr.onreadystatechange=function(){
+			if(xhr.readyState==4&&xhr.status==200)
+			{	
+				
+				var div=document.createElement("div");
+				var text=document.createTextNode(xhr.responseText);
+				
+				div.appendChild(text);
+				mb.appendChild(div);
+
+				mb.scrollIntoView();
+
+			}
+		}
+		xhr.send(null);
+	}
+	*/
+//	setTimeout(showAlldata,2000);
+	input.onchange=function(){sendMessage();responseMessage();}
+	//setInterval(function(){responseMessage()},5000);
+
+}
+	
+
+
+</script>
+</body>
+</html>
