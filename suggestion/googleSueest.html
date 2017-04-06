@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="autosuggest.css">
+</head>
+<body>
+	<input type="text" name="txtAutosuggest" value="" autocomplete="off" id="txtState">
+
+
+
+<script type="text/javascript">
+	window.onload=function(){
+		
+
+		function AutoSuggestControl(oTextbox,oProvider)
+		{	
+			this.cur=-1
+			this.userText=oTextbox.value;
+
+			this.layer=null;
+
+			this.provider=oProvider;
+			this.textbox=oTextbox;
+
+
+			this.timeoutId=null;
+
+			this.init();
+		}
+		/*oTextbox.select();
+		var oRange=oTextbox.createTextRange();
+		oRange.moveStart("character",0);
+		oRange.moveEnd("character",3 - oTextbox.value.length);
+		oRange.select();
+		oTextbox.focus();
+		*/
+		
+		
+		AutoSuggestControl.prototype.handleKeyDown=function(oEvent)
+			{
+				switch(oEvent.keyCode)
+				{
+					case 38:
+						this.goToSuggestion(-1);
+					case 40:
+						this.goToSuggestion(1);
+					case 27:
+						this.textbox.value=this.userText;
+						this.selectRange(this.userText.length,0);
+					case 13:
+						this.hideSuggesting=false;
+						if(oEvent.preventDefault()){
+							oEvent.preventDefault();
+						}
+						break;
+				}
+			}
+
+		AutoSuggestControl.prototype.handleKeyUp=function(oEvent)
+		{	
+			
+			var oEvent=oEvent||window.event;
+			var iKeyCode=oEvent.keyCode;
+			var oThis=this;
+			this.userText=this.textbox.value;
+			if(iKeyCode==8||iKeyCode==46)
+			{
+				this.timeoutId=setTimeout(function(){
+					oThis.provider.requestSuggestions(oThis,false);
+				},250)
+			}
+			else if((iKeyCode!=16&&iKeyCode<32)||(iKeyCode>=33&&iKeyCode<=46)||(iKeyCode>=112&&iKeyCode<=123))
+			{
+					return;
+			}else{
+				this.timeoutId=setTimeout(function(){
+					oThis.provider.requestSuggestions(oThis,true);
+				},250)
+			}
+		}
+
+		AutoSuggestControl.prototype.init=function(){
+			var oThis=this;
+			this.textbox.onkeyup=function(oEvent)
+			{
+				var oEvent=oEvent||window.event;
+				oThis.handleKeyUp(oEvent);
+			}
+			this.textbox.onkeydown=function(oEvent)
+			{	
+				var oEvent=oEvent||window.event;
+				oThis.handleKeyDown(oEvent);
+			}
+			this.textbox.onblur=function(oEvent)
+			{
+				oThis.hideSuggestions();
+			}
+			this.createDropDown();
+			
+		}
+		//--------------------------------------layer shower-----------
+		AutoSuggestControl.prototype.selectRange=function(iStart,iEnd)
+		{	//for IE;
+			if(this.textbox.createTextRange)
+			{
+				var oRange=this.textbox.createTextRange();
+				oRange.moveStart("character",iStart);
+				oRange.moveEnd("character",iEnd-this.textbox.value.length);
+				oRange.select();
+			}else if(this.textbox.setSelectionRange)
+			{	//for firefox;
+				this.textbox.setSelectionRange(iStart,iEnd);
+			}
+			this.textbox.focus();
+		}
+
+		AutoSuggestControl.prototype.typeAhead=function(sSuggestions/*返回data[0],显示*/)
+		{
+			if(this.textbox.createTextRange||this.textbox.setSelectionRange)
+			{
+				var iLen=this.textbox.value.length;
+				this.textbox.value=sSuggestions;
+				this.selectRange(iLen,sSuggestions.length);
+
+			}
+		}
+		AutoSuggestControl.prototype.showSuggestions=function(aSuggestions/*服务器返回的data*/)
+			{
+				var oDiv=null;
+				this.layer.innerHTML="";
+				for(var i=0;i<aSuggestions.length;i++)
+				{
+					oDiv=document.createElement("div");
+					oDiv.appendChild(document.createTextNode(aSuggestions[i]));
+					this.layer.appendChild(oDiv);
+				}
+				this.layer.style.left=this.getLeft()+"px";
+				this.layer.style.top=(this.getTop()+this.textbox.offsetHeight)+"px";
+				this.layer.style.visibility="visible";
+
+			}
+		AutoSuggestControl.prototype.highlightSuggestion = function (oSuggestionNode/*事件对象*/) {
+    
+		    for (var i=0; i < this.layer.childNodes.length; i++) {
+		    	
+		        var oNode = this.layer.childNodes[i];
+		        if (oNode == oSuggestionNode) {
+		            oNode.className = "current";
+		        } else if (oNode.className == "current") {
+		            oNode.className = "";
+		        }
+  	    	}
+  		}
+  		AutoSuggestControl.prototype.hideSuggestions=function(oSuggestionNode)
+		{
+			this.layer.style.visibility="hidden";
+			
+		}
+		AutoSuggestControl.prototype.autosuggest=function(aSuggestions/*服务器返回的data*/,bTYpeAhead)
+			{	
+				this.cur=-1;
+				if(aSuggestions.length>0)
+				{	
+					if(bTYpeAhead){
+						this.typeAhead(aSuggestions[0]/*返回的第一个data显示在文本框*/);
+					}
+						this.showSuggestions(aSuggestions);
+				}else{
+						this.hideSuggestions();
+					}
+			}
+			
+		
+		
+
+		AutoSuggestControl.prototype.createDropDown=function()
+		{
+			this.layer=document.createElement("div");
+			this.layer.className="suggestions";
+			this.layer.style.visibility="hidden";
+			this.layer.style.width=this.textbox.offsetWidth;
+			document.body.appendChild(this.layer);
+
+			var oThis=this;
+			this.layer.onmousedown=this.layer.onmouseup=this.layer.onmouseover=function(oEvent)
+			{
+				oEvent=oEvent||window.event;
+				oTarget=oEvent.target||oEvent.srcElement;
+				if(oEvent.type=="mousedown")
+				{
+					oThis.textbox.value=oTarget.firstChild.nodeValue;
+					oThis.hideSuggestions();
+				}else if(oEvent.type=="mouseover")
+				{
+					oThis.highlightSuggestion(oTarget);
+				}else{
+					oThis.textbox.focus();
+				}
+			}
+		}
+			AutoSuggestControl.prototype.getLeft=function()
+			{
+				var oNode=this.textbox;
+				var iLeft=0;
+				while(oNode!=document.body)
+				{
+					iLeft+=oNode.offsetLeft;
+					oNode=oNode.offsetParent;
+				}
+				return iLeft;
+			}
+
+			AutoSuggestControl.prototype.getTop=function()
+			{
+				var oNode=this.textbox;
+				var iTop=0;
+				while(oNode!=document.body)
+				{
+					iTop+=oNode.offsetTop;
+					oNode=oNode.offsetParent;
+				}
+				return iTop;
+			}
+
+
+			AutoSuggestControl.prototype.goToSuggestion=function(iiDiff)
+			{
+				var cSuggestionNodes=this.layer.childNodes;
+				if(cSuggestionNodes.length>0)
+				{
+					var oNode=null;
+					if(iiDiff>0)
+					{
+						if(this.cur<cSuggestionNodes.length-1)
+						{
+							oNode=cSuggestionNodes[++this.cur];
+
+						}
+
+					}else{
+							if(this.cur>0)
+							{
+								oNode=cSuggestionNodes[--this.cur];
+							}
+						}
+					if(oNode)
+					{
+						this.highlightSuggestion(oNode);
+						this.textbox.value=oNode.firstChild.nodeValue;
+					}
+				}
+			}
+
+			
+
+//xml
+		function SuggestionProvider()
+		{
+			this.xhr=new XMLHttpRequest();
+
+		}
+
+		SuggestionProvider.prototype.requestSuggestions=function(oAutoSuggestControl,bTypeAhead)
+		{	
+			var xml=this.xhr;
+			if(xml.readyState!=0)
+			{
+				xml.abort();
+			}
+
+			var oData={
+				requesting:"statesandprovinces",
+				text:oAutoSuggestControl.userText,
+				limit:5
+			}
+			
+			xml.open("get","suggestion.php?t="+oAutoSuggestControl.userText,true);
+			xml.setRequestHeader("Content-type","text/html;charset=utf-8");
+			xml.onreadystatechange=function(){
+				if(xml.readyState==4)
+				{	
+					if(xml.status==200||xml.status==304)
+					{
+						var aSuggestions=JSON.parse(xml.responseText);
+						//console.log(xml.responseText);
+						oAutoSuggestControl.autosuggest(aSuggestions,bTypeAhead);
+					}
+				}
+			}
+			xml.send();
+		}
+
+		var oTextbox=new AutoSuggestControl(document.getElementById("txtState"),new SuggestionProvider());
+	}
+		
+	    </script>
+    </body>
+</html>
