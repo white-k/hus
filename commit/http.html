@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>example Two</title>
+	<meta charset="utf-8">
+	<script type="text/javascript">
+		var iTimeoutId=null;
+		
+		function hearbeat()
+		{
+			clearTimeout(iTimeoutId);
+			iTimeoutId=setTimeout(resetConnection,10000);
+		}
+		function resetConnection()
+		{
+			frames["connection"].location.replace("ProgressiveHTTPExample4Connection.php?t="+new Date().getTime());
+			hearbeat();
+		}
+
+		function modifiedAt(sDateTime)
+		{
+			document.getElementById("divStatus").innerHTML="Modified at"+sDateTime;
+		}
+
+		window.onload=resetConnection;
+	</script>
+</head>
+<body>
+	<div>
+		<div id="divStatus">Waiting for first message...</div>
+		<iframe src="about:blank" name="connection" ></iframe>
+	</div>
+</body>
+</html>

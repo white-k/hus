@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		<meta charset="utf-8">
+	</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var iTimeoutId=null;
+		var xml=null;
+		function resetConnection(){
+
+			xml.abort();
+			xml.open("get","FirefoxExampleConnection.php?t="+new Date().getTime(),true);
+			xml.onreadystatechange=function()
+			{
+				switch(xml.readyState)
+					{
+						case 3:
+							console.log(1);
+							var aCommands=xml.responseText.split(";");
+							var sCommand=aCommands.pop();
+							console.log(sCommand) ;
+							eval(sCommand);
+							break;
+						case 4:
+						console.log(2);
+						
+							resetConnection();
+							break;
+					}
+
+			}
+			xml.send(null);
+			hearbeat();
+		};
+		
+
+		function hearbeat()
+		{
+			clearTimeout(iTimeoutId);
+			iTimeoutId=setTimeout(resetConnection,10000);
+
+		}
+		function modifiedAt(sDateTime)
+		{
+			document.getElementById("divStatus").innerHTML="Modified at"+sDateTime;
+		}
+		window.onload=function()
+		{
+			xml=new XMLHttpRequest();
+			resetConnection();
+		}
+	</script>
+	<div id="divStatus">Waiting for first message...</div>
+</body>
+</html>

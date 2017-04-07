@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>example Two</title>
+	<meta charset="utf-8">
+	<script type="text/javascript">
+		var iTimeoutId=null;
+		var opage=null;
+		function hearbeat()
+		{
+			clearTimeout(iTimeoutId);
+			iTimeoutId=setTimeout(resetConnection,10000);
+		}
+		function resetConnection()
+		{
+			opage.body.innerHTML="<iframe src='ProgressiveHTTPExample4Connection.php?t="+new Date().getTime()+"' name='connection'></frame>";
+			hearbeat();
+		}
+
+		function modifiedAt(sDateTime)
+		{
+			document.getElementById("divStatus").innerHTML="Modified at"+sDateTime;
+		}
+
+		window.onload=function()
+		{	
+			opage=new ActiveXObject('htmlfile');
+			opage.open();
+			opage.write("<html><body></body></html>");
+			opage.close();
+			opage.parentWindow._parent=self;
+			
+			resetConnection();
+		}
+	</script>
+</head>
+<body>
+	<div>
+		<div id="divStatus">Waiting for first message...</div>
+	
+	</div>
+</body>
+</html>
