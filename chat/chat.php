@@ -8,20 +8,4 @@
 	}
 	$query="select * from message where customer='".$_SESSION['user']."'";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ?>
