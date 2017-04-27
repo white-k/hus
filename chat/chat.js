@@ -1,3 +1,4 @@
+var id=0;//全局变量
 window.onload=function(){
 	var customer=prompt("请输入昵称");
 
@@ -6,6 +7,7 @@ window.onload=function(){
 	
 
 	var showBox=document.getElementById("showMessage");
+	//兼容IE
 	if(window.XMLHttpRequest=="undefined")
 	{
 		window.XMLHttpRequest=function()
@@ -23,18 +25,19 @@ window.onload=function(){
 	}
 	
 	sendMessage('chatSave.php',messBox,customer);
-	showMessage('chat.php',showBox);
+	showMessage('chat.php?id='+id,showBox);
 	
 
 
 }
+//发送消息
 function sendMessage(url,mBox,cus)
 {	
 	mBox.onchange=function()
 	{	var data={
 			name:cus,
 			value:mBox.value
-
+			
 		}
 		var xml=new XMLHttpRequest();
 		xml.open("post",url);
@@ -47,6 +50,7 @@ function sendMessage(url,mBox,cus)
 	
 	}
 }
+//显示消息
 function showMessage(url,box)
 {	
 	var xml=new XMLHttpRequest();
@@ -57,22 +61,38 @@ function showMessage(url,box)
 		{
 			if(xml.status==200||xml.status==304)
 			{	
-
-				styleBox(box,xml.responseText);
+				var rep=JSON.parse(xml.responseText);
+				for(var i=0;i<rep.length;i++)
+				{
+					styleBox(box,rsp[i]['message'],rsp[i]['customer'],rsp[i]['date']);
+				}	
+				
 			}
 		}
+		setTimeout('showMessage('chat.php?id='+id,box)')
 	}
 	xml.send(null);
 }
-function styleBox(elt,text)
-{
-	var eltM=document.createElement("div");
+//消息样式
+function styleBox(elt,text,user,time)
+{	
+	var eltM=document.createElement("span");
+	var eltU=document.createElement("span");
+	var showT=document.createElement("p");
+	var showText=document.createTextNode(time);
+	showT.appendChild(showText);
+	eltU.textContent=user+":";
+	var warner=document.createElement("div");
 	var eltT=document.createTextNode(text);
 	eltM.setAttribute('class','font');
-	elt.appendChild(eltM);
+	warner.appendChild(showT);
+	elt.appendChild(warner);
 	eltM.appendChild(eltT);
+	warner.appendChild(eltM);
+	warner.insertBefore(eltU,eltM);
 
 }
+//处理数据对象
 function postMessage(oValue)
 {
 	var dates=[];
