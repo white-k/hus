@@ -1,7 +1,8 @@
-<?php
+<?php	
+//常量
 	define('HOST','localhost');
-	define('USER','ajax');
-	define('A','ajax123');
-	define('DB','ifram');
+	define('USER','user');
+	define('A','password');
+	define('DB','select database');
 
 ?>
