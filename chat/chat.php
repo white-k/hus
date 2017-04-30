@@ -1,6 +1,6 @@
 <?php
 	include_onece('init_inc.php');
-	$id=$_POST['id'];
+	$id=$_POST['id'];//获取id
 	$arr=array();
 	if(!get_magic_quote_gpc())
 	{
@@ -11,7 +11,7 @@
 	{
 		echo "not connect database.";
 	}
-	$query="select * from message where customerId>".$id;
+	$query="select * from message where customerId>".$id;//防止重复获取数据
 	$result=$db->query($query);
 	while($row=$result->fetch_assoc())
 	{
