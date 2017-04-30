@@ -65,11 +65,12 @@ function showMessage(url,box)
 				for(var i=0;i<rep.length;i++)
 				{
 					styleBox(box,rsp[i]['message'],rsp[i]['customer'],rsp[i]['date']);
+					id=rsp[i]['customerId'];//获取消息记录序列号赋值给id;
 				}	
 				
 			}
 		}
-		setTimeout('showMessage('chat.php?id='+id,box)')
+		setTimeout('showMessage('chat.php?id='+id,box)')//异步调用外面id的值没有改变;在内部超时设置;
 	}
 	xml.send(null);
 }
