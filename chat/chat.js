@@ -6,7 +6,7 @@ window.onload=function(){
 	var text=messBox.value;
 	
 
-	var showBox=document.getElementById("showMessage");
+	var show=document.getElementById("showMessage");
 	console.log(showBox);
 	//兼容IE
 	if(window.XMLHttpRequest=="undefined")
@@ -26,7 +26,7 @@ window.onload=function(){
 	}
 	
 	sendMessage('chatSave.php',messBox,customer);
-	showMessage('chat.php?id='+id,showBox);
+	showMessage('chat.php?id='+id,show);
 	
 
 
@@ -112,6 +112,6 @@ function postMessage(oValue)
 		
 	}
 		console.log(dates);
-	return dates.join('&');
+	return dates.join('&')
 
 }
