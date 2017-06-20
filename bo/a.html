@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>vue test</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+	<meta name="author" content=""/>
+	<meta name="version" content=""/>
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+	<meta name="robots" content="all"/>
+
+	<script type="text/javascript" src="vue.js"></script>
+	<link rel="stylesheet" type="text/css" href="a.css"/>
+</head>
+<body>
+	<div id="page">
+		<div id="banner-nav" class="warp">
+		<!--banner 顶部导航部分-->
+			<div id="nav-top" class="user">
+				<!--左边logo-->
+				<div id="logo">
+					<img src="img/logo.jpg"/>
+				</div>
+				
+				
+				<!--右边登录注册部分-->
+				<div id="user-info">
+					<div class="inner-if">
+						<div class="note">
+							<a >我的学习</a>
+							<a >消息</a>
+							<a >购物车</a>
+							<a >登陆/注册</a>
+						</div>
+						<div class="pos-f">
+							<div class="face">
+								<img src="img/small.jpg"/>
+							</div>
+							<div class="box-info">
+								<div class="infomation"></div>
+							</div>
+						</div>
+						
+					</div>
+					
+				</div>
+				
+			</div>
+				<!--底部banner-->
+			<div id="nav-show">
+				<div class="dyg">
+					<a >
+						<div class="hd"></div>
+						<span>全部课程</span>
+					</a>
+					
+				</div>
+				<div class="drg">
+
+					<div class="list-box">
+						<div>
+							<div id="tb">
+								<div class="box-warp">
+								
+									<div class="inner">
+										<p>
+											<a class="fs">编程开发</a>
+											<a class="se">前端开发</a>
+											<a class="se">移动开发</a>								
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div>
+							<div id="tb">
+								<div class="box-warp">
+									
+									<div class="inner">
+										<p>
+											<a class="fs">编程开发</a>
+											<a class="se">前端开发</a>
+											<a class="se">移动开发</a>								
+										</p>
+									</div>
+								</div>	
+							</div>
+						</div>
+						<div>
+							<div id="tb"> 
+								<div class="box-warp">
+									<div class="inner">
+										<p>
+											<a class="fs">编程开发</a>
+											<a class="se">前端开发</a>
+											<a class="se">移动开发</a>								
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div>
+							<div id="tb">
+								<div class="box-warp">
+									<div class="inner">
+										<p>
+											<a class="fs">编程开发</a>
+											<a class="se">前端开发</a>
+											<a class="se">移动开发</a>								
+										</p>
+									</div>
+								</div>	
+							</div>
+						</div>
+						<div>
+							<div id="tb">
+								<div class="box-warp">
+									<div class="inner">
+										<p>
+											<a class="fs">编程开发</a>
+											<a class="se">前端开发</a>
+											<a class="se">移动开发</a>								
+										</p>
+									</div>
+								</div>	
+							</div>
+						</div>
+						<div>
+							<div id="tb">
+								<div class="box-warp">
+									<div class="inner">
+										<p>
+											<a class="fs">编程开发</a>
+											<a class="se">前端开发</a>
+											<a class="se">移动开发</a>								
+										</p>
+									</div>
+								</div>	
+							</div>		
+						</div>
+					</div>
+					<div class="warp-ini">
+						<div class="ini">
+							<div class="left-if">
+								<div class="fr">
+									<a href="">编程开发·精选好课</a>
+									<a href="">数据科学家</a>
+								</div>
+								<a  class="cap" href="">编程语言</a>
+								<div class="links">
+									<p>	
+										<span class="split">|</span>
+										<a href="" class="">Python</a>
+										<span class="split">|</span>
+										<a href="">PHP</a>
+										<span class="split">|</span>
+										<a href="">Java</a>
+										<span class="split">|</span>
+										<a href="">C</a>
+										<span class="split">|</span>
+										<a href="">C++</a>
+										<span class="split">|</span>
+										<a href="">C#</a>
+										<span class="split">|</span>
+										<a href="">Swift</a>
+										<span class="split">|</span>
+										<a href="">R</a>
+										<span class="split">|</span>
+										<a href="">Git</a>
+									</p>
+								</div>
+								<a  class="cap" href="">前端开发</a>
+								<div class="links">
+									<p>	
+										<span class="split">|</span>
+										<a href="" class="">HTML/CSS</a>
+										<span class="split">|</span>
+										<a href="">JavaScript</a>
+										<span class="split">|</span>
+										<a href="">HTML5</a>
+										<span class="split">|</span>
+										<a href="">jQuery</a>
+										<span class="split">|</span>
+										<a href="">Bootstrap</a>
+										<span class="split">|</span>
+										<a href="">AngularJS</a>
+										<span class="split">|</span>
+										<a href="">React</a>
+										<span class="split">|</span>
+										<a href="">Vue.js</a>
+										<span class="split">|</span>
+										<a href="">ExtJS</a>
+										<span class="split">|</span>
+										<a href="">开发框架</a>
+									</p>
+								</div>
+								<a  class="cap" href="">后端开发</a>
+								<div class="links">
+									<p>	
+										<span class="split">|</span>
+										<a href="" class="">Node.js</a>
+										<span class="split">|</span>
+										<a href="">.NET</a>
+										<span class="split">|</span>
+										<a href="">J2EE</a>
+										<span class="split">|</span>
+										<a href="">Go</a>
+										<span class="split">|</span>
+										<a href="">开发实践</a>
+									</p>
+								</div>
+								<a  class="cap" href="">移动开发</a>
+								<div class="links">
+									<p>	
+										<span class="split">|</span>
+										<a href="" class="">iOS</a>
+										<span class="split">|</span>
+										<a href="">Android</a>
+										<span class="split">|</span>
+										<a href="">Windows Phone</a>
+										<span class="split">|</span>
+										<a href="">手游开发</a>
+									</p>
+								</div>
+								<a  class="cap" href="">数据处理</a>
+								<div class="links">
+									<p>	
+										<span class="split">|</span>
+										<a href="" class="">大数据</a>
+										<span class="split">|</span>
+										<a href="">MySQL</a>
+										<span class="split">|</span>
+										<a href="">Oracle</a>
+										<span class="split">|</span>
+										<a href="">SQL Server</a>
+									</p>
+								</div>
+								<a  class="cap" href="">系统/硬件</a>
+								<div class="links">
+									<p>	
+										<span class="split">|</span>
+										<a href="" class="">信息安全</a>
+										<span class="split">|</span>
+										<a href="">操作系统</a>
+										<span class="split">|</span>
+										<a href="">物联网</a>
+										<span class="split">|</span>
+										<a href="">运维管理</a>
+										<span class="split">|</span>
+										<a href="">开发实践</a>
+									</p>
+								</div>
+							</div>
+							<div class="right-if"></div>
+						</div>
+						<div class="ini">
+							<div class="left-if">
+								<div class="fr">
+									<a href="">编程开发·精选好课</a>
+									<a href="">数据科学家</a>
+								</div>
+								<a  class="cap" href="">编程语言</a>
+								<div class="links">
+									<p>	
+										<span class="split">|</span>
+										<a href="" class="">Python</a>
+										<span class="split">|</span>
+										<a href="">PHP</a>
+										<span class="split">|</span>
+										<a href="">Java</a>
+										<span class="split">|</span>
+										<a href="">C</a>
+										<span class="split">|</span>
+										<a href="">C++</a>
+										<span class="split">|</span>
+										<a href="">C#</a>
+										<span class="split">|</span>
+										<a href="">Swift</a>
+										<span class="split">|</span>
+										<a href="">R</a>
+										<span class="split">|</span>
+										<a href="">Git</a>
+									</p>
+								</div>
+								<a  class="cap" href="">前端开发</a>
+								<div class="links">
+									<p>	
+										<span class="split">|</span>
+										<a href="" class="">HTML/CSS</a>
+										<span class="split">|</span>
+										<a href="">JavaScript</a>
+										<span class="split">|</span>
+										<a href="">HTML5</a>
+										<span class="split">|</span>
+										<a href="">jQuery</a>
+										<span class="split">|</span>
+										<a href="">Bootstrap</a>
+										<span class="split">|</span>
+										<a href="">AngularJS</a>
+										<span class="split">|</span>
+										<a href="">React</a>
+										<span class="split">|</span>
+										<a href="">Vue.js</a>
+										<span class="split">|</span>
+										<a href="">ExtJS</a>
+										<span class="split">|</span>
+										<a href="">开发框架</a>
+									</p>
+								</div>
+								<a  class="cap" href="">后端开发</a>
+								<div class="links">
+									<p>	
+										<span class="split">|</span>
+										<a href="" class="">Node.js</a>
+										<span class="split">|</span>
+										<a href="">.NET</a>
+										<span class="split">|</span>
+										<a href="">J2EE</a>
+										<span class="split">|</span>
+										<a href="">Go</a>
+										<span class="split">|</span>
+										<a href="">开发实践</a>
+									</p>
+								</div>
+								<a  class="cap" href="">移动开发</a>
+								<div class="links">
+									<p>	
+										<span class="split">|</span>
+										<a href="" class="">iOS</a>
+										<span class="split">|</span>
+										<a href="">Android</a>
+										<span class="split">|</span>
+										<a href="">Windows Phone</a>
+										<span class="split">|</span>
+										<a href="">手游开发</a>
+									</p>
+								</div>
+								<a  class="cap" href="">数据处理</a>
+								<div class="links">
+									<p>	
+										<span class="split">|</span>
+										<a href="" class="">大数据</a>
+										<span class="split">|</span>
+										<a href="">MySQL</a>
+										<span class="split">|</span>
+										<a href="">Oracle</a>
+										<span class="split">|</span>
+										<a href="">SQL Server</a>
+									</p>
+								</div>
+								<a  class="cap" href="">系统/硬件</a>
+								<div class="links">
+									<p>	
+										<span class="split">|</span>
+										<a href="" class="">信息安全</a>
+										<span class="split">|</span>
+										<a href="">操作系统</a>
+										<span class="split">|</span>
+										<a href="">物联网</a>
+										<span class="split">|</span>
+										<a href="">运维管理</a>
+										<span class="split">|</span>
+										<a href="">开发实践</a>
+									</p>
+								</div>
+							</div>
+							<div class="right-if"></div>
+						</div>
+						<div class="ini">
+							<div class="left-if">
+								<div class="fr">
+									<a href="">编程开发·精选好课</a>
+									<a href="">数据科学家</a>
+								</div>
+								<a  class="cap" href="">编程语言</a>
+								<div class="links">
+									<p>	
+										<span class="split">|</span>
+										<a href="" class="">Python</a>
+										<span class="split">|</span>
+										<a href="">PHP</a>
+										<span class="split">|</span>
+										<a href="">Java</a>
+										<span class="split">|</span>
+										<a href="">C</a>
+										<span class="split">|</span>
+										<a href="">C++</a>
+										<span class="split">|</span>
+										<a href="">C#</a>
+										<span class="split">|</span>
+										<a href="">Swift</a>
+										<span class="split">|</span>
+										<a href="">R</a>
+										<span class="split">|</span>
+										<a href="">Git</a>
+									</p>
+								</div>
+								<a  class="cap" href="">前端开发</a>
+								<div class="links">
+									<p>	
+										<span class="split">|</span>
+										<a href="" class="">HTML/CSS</a>
+										<span class="split">|</span>
+										<a href="">JavaScript</a>
+										<span class="split">|</span>
+										<a href="">HTML5</a>
+										<span class="split">|</span>
+										<a href="">jQuery</a>
+										<span class="split">|</span>
+										<a href="">Bootstrap</a>
+										<span class="split">|</span>
+										<a href="">AngularJS</a>
+										<span class="split">|</span>
+										<a href="">React</a>
+										<span class="split">|</span>
+										<a href="">Vue.js</a>
+										<span class="split">|</span>
+										<a href="">ExtJS</a>
+										<span class="split">|</span>
+										<a href="">开发框架</a>
+									</p>
+								</div>
+								<a  class="cap" href="">后端开发</a>
+								<div class="links">
+									<p>	
+										<span class="split">|</span>
+										<a href="" class="">Node.js</a>
+										<span class="split">|</span>
+										<a href="">.NET</a>
+										<span class="split">|</span>
+										<a href="">J2EE</a>
+										<span class="split">|</span>
+										<a href="">Go</a>
+										<span class="split">|</span>
+										<a href="">开发实践</a>
+									</p>
+								</div>
+								<a  class="cap" href="">移动开发</a>
+								<div class="links">
+									<p>	
+										<span class="split">|</span>
+										<a href="" class="">iOS</a>
+										<span class="split">|</span>
+										<a href="">Android</a>
+										<span class="split">|</span>
+										<a href="">Windows Phone</a>
+										<span class="split">|</span>
+										<a href="">手游开发</a>
+									</p>
+								</div>
+								<a  class="cap" href="">数据处理</a>
+								<div class="links">
+									<p>	
+										<span class="split">|</span>
+										<a href="" class="">大数据</a>
+										<span class="split">|</span>
+										<a href="">MySQL</a>
+										<span class="split">|</span>
+										<a href="">Oracle</a>
+										<span class="split">|</span>
+										<a href="">SQL Server</a>
+									</p>
+								</div>
+								<a  class="cap" href="">系统/硬件</a>
+								<div class="links">
+									<p>	
+										<span class="split">|</span>
+										<a href="" class="">信息安全</a>
+										<span class="split">|</span>
+										<a href="">操作系统</a>
+										<span class="split">|</span>
+										<a href="">物联网</a>
+										<span class="split">|</span>
+										<a href="">运维管理</a>
+										<span class="split">|</span>
+										<a href="">开发实践</a>
+									</p>
+								</div>
+							</div>
+							<div class="right-if"></div>
+						</div>
+						<div class="ini">
+							<div class="left-if">
+								<div class="fr">
+									<a href="">编程开发·精选好课</a>
+									<a href="">数据科学家</a>
+								</div>
+								<a  class="cap" href="">编程语言</a>
+								<div class="links">
+									<p>	
+										<span class="split">|</span>
+										<a href="" class="">Python</a>
+										<span class="split">|</span>
+										<a href="">PHP</a>
+										<span class="split">|</span>
+										<a href="">Java</a>
+										<span class="split">|</span>
+										<a href="">C</a>
+										<span class="split">|</span>
+										<a href="">C++</a>
+										<span class="split">|</span>
+										<a href="">C#</a>
+										<span class="split">|</span>
+										<a href="">Swift</a>
+										<span class="split">|</span>
+										<a href="">R</a>
+										<span class="split">|</span>
+										<a href="">Git</a>
+									</p>
+								</div>
+								<a  class="cap" href="">前端开发</a>
+								<div class="links">
+									<p>	
+										<span class="split">|</span>
+										<a href="" class="">HTML/CSS</a>
+										<span class="split">|</span>
+										<a href="">JavaScript</a>
+										<span class="split">|</span>
+										<a href="">HTML5</a>
+										<span class="split">|</span>
+										<a href="">jQuery</a>
+										<span class="split">|</span>
+										<a href="">Bootstrap</a>
+										<span class="split">|</span>
+										<a href="">AngularJS</a>
+										<span class="split">|</span>
+										<a href="">React</a>
+										<span class="split">|</span>
+										<a href="">Vue.js</a>
+										<span class="split">|</span>
+										<a href="">ExtJS</a>
+										<span class="split">|</span>
+										<a href="">开发框架</a>
+									</p>
+								</div>
+								<a  class="cap" href="">后端开发</a>
+								<div class="links">
+									<p>	
+										<span class="split">|</span>
+										<a href="" class="">Node.js</a>
+										<span class="split">|</span>
+										<a href="">.NET</a>
+										<span class="split">|</span>
+										<a href="">J2EE</a>
+										<span class="split">|</span>
+										<a href="">Go</a>
+										<span class="split">|</span>
+										<a href="">开发实践</a>
+									</p>
+								</div>
+								<a  class="cap" href="">移动开发</a>
+								<div class="links">
+									<p>	
+										<span class="split">|</span>
+										<a href="" class="">iOS</a>
+										<span class="split">|</span>
+										<a href="">Android</a>
+										<span class="split">|</span>
+										<a href="">Windows Phone</a>
+										<span class="split">|</span>
+										<a href="">手游开发</a>
+									</p>
+								</div>
+								<a  class="cap" href="">数据处理</a>
+								<div class="links">
+									<p>	
+										<span class="split">|</span>
+										<a href="" class="">大数据</a>
+										<span class="split">|</span>
+										<a href="">MySQL</a>
+										<span class="split">|</span>
+										<a href="">Oracle</a>
+										<span class="split">|</span>
+										<a href="">SQL Server</a>
+									</p>
+								</div>
+								<a  class="cap" href="">系统/硬件</a>
+								<div class="links">
+									<p>	
+										<span class="split">|</span>
+										<a href="" class="">信息安全</a>
+										<span class="split">|</span>
+										<a href="">操作系统</a>
+										<span class="split">|</span>
+										<a href="">物联网</a>
+										<span class="split">|</span>
+										<a href="">运维管理</a>
+										<span class="split">|</span>
+										<a href="">开发实践</a>
+									</p>
+								</div>
+							</div>
+							<div class="right-if"></div>
+						</div>
+						<div class="ini">
+							<div class="left-if">
+								<div class="fr">
+									<a href="">编程开发·精选好课</a>
+									<a href="">数据科学家</a>
+								</div>
+								<a  class="cap" href="">编程语言</a>
+								<div class="links">
+									<p>	
+										<span class="split">|</span>
+										<a href="" class="">Python</a>
+										<span class="split">|</span>
+										<a href="">PHP</a>
+										<span class="split">|</span>
+										<a href="">Java</a>
+										<span class="split">|</span>
+										<a href="">C</a>
+										<span class="split">|</span>
+										<a href="">C++</a>
+										<span class="split">|</span>
+										<a href="">C#</a>
+										<span class="split">|</span>
+										<a href="">Swift</a>
+										<span class="split">|</span>
+										<a href="">R</a>
+										<span class="split">|</span>
+										<a href="">Git</a>
+									</p>
+								</div>
+								<a  class="cap" href="">前端开发</a>
+								<div class="links">
+									<p>	
+										<span class="split">|</span>
+										<a href="" class="">HTML/CSS</a>
+										<span class="split">|</span>
+										<a href="">JavaScript</a>
+										<span class="split">|</span>
+										<a href="">HTML5</a>
+										<span class="split">|</span>
+										<a href="">jQuery</a>
+										<span class="split">|</span>
+										<a href="">Bootstrap</a>
+										<span class="split">|</span>
+										<a href="">AngularJS</a>
+										<span class="split">|</span>
+										<a href="">React</a>
+										<span class="split">|</span>
+										<a href="">Vue.js</a>
+										<span class="split">|</span>
+										<a href="">ExtJS</a>
+										<span class="split">|</span>
+										<a href="">开发框架</a>
+									</p>
+								</div>
+								<a  class="cap" href="">后端开发</a>
+								<div class="links">
+									<p>	
+										<span class="split">|</span>
+										<a href="" class="">Node.js</a>
+										<span class="split">|</span>
+										<a href="">.NET</a>
+										<span class="split">|</span>
+										<a href="">J2EE</a>
+										<span class="split">|</span>
+										<a href="">Go</a>
+										<span class="split">|</span>
+										<a href="">开发实践</a>
+									</p>
+								</div>
+								<a  class="cap" href="">移动开发</a>
+								<div class="links">
+									<p>	
+										<span class="split">|</span>
+										<a href="" class="">iOS</a>
+										<span class="split">|</span>
+										<a href="">Android</a>
+										<span class="split">|</span>
+										<a href="">Windows Phone</a>
+										<span class="split">|</span>
+										<a href="">手游开发</a>
+									</p>
+								</div>
+								<a  class="cap" href="">数据处理</a>
+								<div class="links">
+									<p>	
+										<span class="split">|</span>
+										<a href="" class="">大数据</a>
+										<span class="split">|</span>
+										<a href="">MySQL</a>
+										<span class="split">|</span>
+										<a href="">Oracle</a>
+										<span class="split">|</span>
+										<a href="">SQL Server</a>
+									</p>
+								</div>
+								<a  class="cap" href="">系统/硬件</a>
+								<div class="links">
+									<p>	
+										<span class="split">|</span>
+										<a href="" class="">信息安全</a>
+										<span class="split">|</span>
+										<a href="">操作系统</a>
+										<span class="split">|</span>
+										<a href="">物联网</a>
+										<span class="split">|</span>
+										<a href="">运维管理</a>
+										<span class="split">|</span>
+										<a href="">开发实践</a>
+									</p>
+								</div>
+							</div>
+							<div class="right-if"></div>
+						</div>
+						<div class="ini">
+							<div class="left-if">
+								<div class="fr">
+									<a href="">编程开发·精选好课</a>
+									<a href="">数据科学家</a>
+								</div>
+								<a  class="cap" href="">编程语言</a>
+								<div class="links">
+									<p>	
+										<span class="split">|</span>
+										<a href="" class="">Python</a>
+										<span class="split">|</span>
+										<a href="">PHP</a>
+										<span class="split">|</span>
+										<a href="">Java</a>
+										<span class="split">|</span>
+										<a href="">C</a>
+										<span class="split">|</span>
+										<a href="">C++</a>
+										<span class="split">|</span>
+										<a href="">C#</a>
+										<span class="split">|</span>
+										<a href="">Swift</a>
+										<span class="split">|</span>
+										<a href="">R</a>
+										<span class="split">|</span>
+										<a href="">Git</a>
+									</p>
+								</div>
+								<a  class="cap" href="">前端开发</a>
+								<div class="links">
+									<p>	
+										<span class="split">|</span>
+										<a href="" class="">HTML/CSS</a>
+										<span class="split">|</span>
+										<a href="">JavaScript</a>
+										<span class="split">|</span>
+										<a href="">HTML5</a>
+										<span class="split">|</span>
+										<a href="">jQuery</a>
+										<span class="split">|</span>
+										<a href="">Bootstrap</a>
+										<span class="split">|</span>
+										<a href="">AngularJS</a>
+										<span class="split">|</span>
+										<a href="">React</a>
+										<span class="split">|</span>
+										<a href="">Vue.js</a>
+										<span class="split">|</span>
+										<a href="">ExtJS</a>
+										<span class="split">|</span>
+										<a href="">开发框架</a>
+									</p>
+								</div>
+								<a  class="cap" href="">后端开发</a>
+								<div class="links">
+									<p>	
+										<span class="split">|</span>
+										<a href="" class="">Node.js</a>
+										<span class="split">|</span>
+										<a href="">.NET</a>
+										<span class="split">|</span>
+										<a href="">J2EE</a>
+										<span class="split">|</span>
+										<a href="">Go</a>
+										<span class="split">|</span>
+										<a href="">开发实践</a>
+									</p>
+								</div>
+								<a  class="cap" href="">移动开发</a>
+								<div class="links">
+									<p>	
+										<span class="split">|</span>
+										<a href="" class="">iOS</a>
+										<span class="split">|</span>
+										<a href="">Android</a>
+										<span class="split">|</span>
+										<a href="">Windows Phone</a>
+										<span class="split">|</span>
+										<a href="">手游开发</a>
+									</p>
+								</div>
+								<a  class="cap" href="">数据处理</a>
+								<div class="links">
+									<p>	
+										<span class="split">|</span>
+										<a href="" class="">大数据</a>
+										<span class="split">|</span>
+										<a href="">MySQL</a>
+										<span class="split">|</span>
+										<a href="">Oracle</a>
+										<span class="split">|</span>
+										<a href="">SQL Server</a>
+									</p>
+								</div>
+								<a  class="cap" href="">系统/硬件</a>
+								<div class="links">
+									<p>	
+										<span class="split">|</span>
+										<a href="" class="">信息安全</a>
+										<span class="split">|</span>
+										<a href="">操作系统</a>
+										<span class="split">|</span>
+										<a href="">物联网</a>
+										<span class="split">|</span>
+										<a href="">运维管理</a>
+										<span class="split">|</span>
+										<a href="">开发实践</a>
+									</p>
+								</div>
+							</div>
+							<div class="right-if"></div>
+						</div>
+
+					</div>
+				</div>
+				
+				<div class="dsg">
+					<a href="">微专业</a>
+					<div>
+						<span>课程体系</span>
+					</div>
+					<a href="">企业版</a>
+					<div>
+						<span>下载APP</span>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+	</div>
+	<div class="section">
+		<div class="content">
+			
+			<ul class="tip">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			
+			<div style="background-color: rgb(0, 44, 211);display:block">
+				<a href="">
+					<img src="img/show.jpg"/>
+				</a>
+				
+			</div>
+			<div style="background-color: rgb(0, 0, 0);">
+				<a href="">
+					<img src="img/sec.png"/>
+				</a>
+			</div>
+			<div style="background-color: rgb(254, 255, 248);">
+				<a href="">
+					<img src="img/thr.jpg"/>
+				</a>
+			</div>
+			<div style="background-color: rgb(0, 113, 254);">
+				<a href="">
+					<img src="img/fu.jpg"/>
+				</a>
+			</div>
+			<div style="background-color: rgb(255, 11, 80);">
+				<a href="">
+					<img src="img/fi.png"/>
+				</a>
+			</div>
+			<div style="background-color: rgb(16, 17, 109);">
+				<a href="">
+					<img src="img/sx.png"/>
+				</a>
+			</div>
+			<div style="background-color: rgb(255, 251, 239);">
+				<a href="">
+					<img src="img/se.jpg"/>
+				</a>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+			var list=document.querySelectorAll("#tb");
+			var len=list.length;
+			var show=document.querySelectorAll(".ini");
+			var box=document.querySelector(".drg");
+			var play=document.querySelectorAll(".content>div");
+			var tip=document.querySelectorAll(".tip>li");
+			var iIndex=0;
+			var timer=null;
+			
+			function Tab(){
+				for(var i=0;i<len;i++)
+				{	
+					(function(cur){
+						list[cur].onmouseover=function()
+						{	
+							for (var i = 0; i < len; i++) {
+								show[i].style.display="none";
+							}
+							show[cur].style.display="block";
+						}
+						show[cur].onmouseover=function()
+						{	
+							for (var i = 0; i < len; i++) {
+								show[i].style.display="none";
+							}
+							show[cur].style.display="block";
+						}
+						box.onmouseout=function()
+						{
+							for(var n=0;n<len;n++)
+							{
+								show[n].style.display="none";
+							}
+
+						}
+					
+					})(i);
+				}
+			}
+		
+			//图片切换
+			
+			function displayLi(){	
+				var len=play.length;
+				for (var n=0;n<len;n++)
+				{		
+					tip[n].className="";
+					
+					play[n].style.display="none";
+				}
+				
+				iIndex=iIndex%7;
+				play[iIndex].style.display="block";
+				tip[iIndex].className="bh";
+				
+				iIndex++;
+				timer=setTimeout(displayLi,5000);
+		
+			}
+			function aLi(){
+				for(var i=0;i<tip.length;i++)
+				{		
+						(function(k){
+							tip[k].onclick=function()
+							{	
+								iIndex=k;
+								for (var n=0;n<len;n++) 
+								{
+									play[n].style.display="none";
+									tip[n].className="";
+								}
+								tip[k].className="bh";
+								play[k].style.display="block";	
+								
+							}
+						}(i))			
+				}
+			};
+		
+		
+	window.onload=function()
+	{	
+			aLi();
+			Tab();
+			displayLi();
+		}
+</script>
+</html>
