@@ -7,6 +7,7 @@ window.onload=function(){
 	
 
 	var showBox=document.getElementById("showMessage");
+	console.log(showBox);
 	//兼容IE
 	if(window.XMLHttpRequest=="undefined")
 	{
