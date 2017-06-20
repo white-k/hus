@@ -7,7 +7,7 @@ window.onload=function(){
 	
 
 	var show=document.getElementById("showMessage");
-	console.log(showBox);
+	
 	//兼容IE
 	if(window.XMLHttpRequest=="undefined")
 	{
@@ -27,8 +27,6 @@ window.onload=function(){
 	
 	sendMessage('chatSave.php',messBox,customer);
 	showMessage('chat.php?id='+id,show);
-	
-
 
 }
 //发送消息
@@ -71,7 +69,10 @@ function showMessage(url,box)
 				
 			}
 		}
-		setTimeout("showMessage('chat.php?id='+id,box)",1000)//异步调用外面id的值没有改变;在内部超时设置;
+		setTimeout(function(){
+					showMessage('chat.php?id='+id,box);
+
+		},1000)//异步调用外面id的值没有改变;在内部超时设置;
 	}
 	xml.send(null);
 }
