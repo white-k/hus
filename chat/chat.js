@@ -70,7 +70,7 @@ function showMessage(url,box)
 				
 			}
 		}
-		setTimeout('showMessage('chat.php?id='+id,box)',1000)//异步调用外面id的值没有改变;在内部超时设置;
+		setTimeout("showMessage('chat.php?id='+id,box)",1000);//异步调用外面id的值没有改变;在内部超时设置;
 	}
 	xml.send(null);
 }
