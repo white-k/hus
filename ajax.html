@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	if(window.XMLHttpRequest=="undefined")
+	{
+		window.XMLHttpRequest=function()
+		{
+			try{return new ActiveXObject("Msxml2.XMLHTTP.6.0")}
+			catch(e1){
+				try{return new ActiveXObject("Msxml2.XMLHTTP.3.0");}
+				catch(e2){
+					try{return new ActiveXObject("Microsoft.XMLHTTP")}
+						catch(e)
+						{
+							throw new Error("this brower not support XMLHttpRequest objext")
+						}
+					}
+					
+				}
+				
+			
+		}
+
+
+	}
+	var xml=new XMLHttpRequest();
+	xml.open("get","a.txt",true);
+	xml.onload=function(e)
+	{
+		if(xml.status==200&xml.readyState==4)
+		{	
+			console.log(xml.responseText);
+
+		}
+		
+
+	}
+	xml.onprogress=function(event)
+		{	
+			
+				console.log(event.totalSize);
+				console.log(event.position);
+		}
+
+
+	xml.send(null);
+</script>
+</html>
